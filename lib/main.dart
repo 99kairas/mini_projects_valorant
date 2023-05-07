@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mini_projects_valorant/provider/login_provider.dart';
-import 'package:mini_projects_valorant/screens/login_screen.dart';
+import 'package:mini_projects_valorant/screens/splash_screen.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       initialRoute: '/',
-      home: LoginScreen(),
+      home: SplashScreen(),
     );
   }
 }
