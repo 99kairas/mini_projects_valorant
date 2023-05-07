@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:mini_projects_valorant/model/api/weapon_api.dart';
+import 'package:mini_projects_valorant/screens/detail_weapon_screen.dart';
 
 import 'theme/font_style.dart';
 
@@ -27,7 +28,14 @@ class _WeaponScreenState extends State<WeaponScreen> {
               var weapon = weaponData.data[index];
 
               return GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            DetailWeaponScreen(weaponID: weapon.uuid),
+                      ));
+                },
                 child: Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: Container(
