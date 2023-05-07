@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:mini_projects_valorant/screens/agent_screen.dart';
+import 'package:mini_projects_valorant/screens/login_screen.dart';
 import 'package:mini_projects_valorant/screens/map_screen.dart';
 import 'package:mini_projects_valorant/screens/weapon_screen.dart';
+import 'package:mini_projects_valorant/utility/shared_preferences.dart';
 
 import 'theme/font_style.dart';
 
@@ -44,6 +46,20 @@ class _HomeScreenState extends State<HomeScreen> {
             fontSize: 20,
           ),
         ),
+        actions: [
+          IconButton(
+            onPressed: () {
+              Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const LoginScreen(),
+                  ),
+                  (route) => false);
+              removeToken();
+            },
+            icon: const Icon(Icons.logout),
+          ),
+        ],
         centerTitle: true,
       ),
       body: screenBottomNavigation(_selectedIndex),

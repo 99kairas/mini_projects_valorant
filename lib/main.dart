@@ -1,8 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:mini_projects_valorant/screens/home_screen.dart';
+import 'package:mini_projects_valorant/provider/login_provider.dart';
+import 'package:mini_projects_valorant/screens/login_screen.dart';
+import 'package:provider/provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider<LoginProvider>(
+          create: (_) => LoginProvider(),
+        ),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -13,7 +24,7 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       initialRoute: '/',
-      home: HomeScreen(),
+      home: LoginScreen(),
     );
   }
 }
