@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:mini_projects_valorant/model/api/agent_api.dart';
+import 'package:mini_projects_valorant/screens/detail_agent_screen.dart';
 
 import 'theme/font_style.dart';
 
@@ -31,7 +32,15 @@ class _AgentScreenState extends State<AgentScreen> {
 
                 return agent.isPlayableCharacter as bool
                     ? GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => DetailAgentScreen(
+                                  agentID: agent.uuid,
+                                ),
+                              ));
+                        },
                         child: Padding(
                           padding: const EdgeInsets.all(15),
                           child: Container(
