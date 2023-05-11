@@ -35,17 +35,44 @@ class _HomeScreenState extends State<HomeScreen> {
     }
   }
 
+  Widget titleScreen(int index) {
+    if (index == 0) {
+      return Text(
+        'Agents',
+        style: valorantStyle.copyWith(
+          fontSize: 20,
+        ),
+      );
+    } else if (index == 1) {
+      return Text(
+        'Weapons',
+        style: valorantStyle.copyWith(
+          fontSize: 20,
+        ),
+      );
+    } else if (index == 1) {
+      return Text(
+        'Maps',
+        style: valorantStyle.copyWith(
+          fontSize: 20,
+        ),
+      );
+    } else {
+      return Text(
+        'VALORANT',
+        style: valorantStyle.copyWith(
+          fontSize: 20,
+        ),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color(0xFF0F131F),
-        title: Text(
-          'VALORANT',
-          style: valorantStyle.copyWith(
-            fontSize: 20,
-          ),
-        ),
+        title: titleScreen(_selectedIndex),
         actions: [
           IconButton(
             onPressed: () {
